@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>first page</title>
+</head>
+<body>
+    <h1>hello world!</h1>
+
+    <form th:action="@{/tomorrow}">
+        <input type="text" name="userName">
+        <input type="submit" value="tomorrow page">
+    </form>
+
+</body>
+</html>
