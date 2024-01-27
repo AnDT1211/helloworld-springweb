@@ -17,7 +17,7 @@ public class Demo2Application {
 }
 
 @Controller
-class Abc {
+class MainController {
 
     @RequestMapping("today")
     String toFirstPage() {
