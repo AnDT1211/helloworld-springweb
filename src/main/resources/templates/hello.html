@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>first page</title>
+    <script src="webjars/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1>hello world!</h1>
+<h1>hello world!</h1>
 
-    <form th:action="@{/tomorrow}">
-        <input type="text" name="userName">
-        <input type="submit" value="tomorrow page">
-    </form>
+<input id="carNameInput" type="text" placeholder="Car Name"/>
+<input id="carAgeInput" type="text" placeholder="Car Age"/>
+<button onclick="testing()">click me please</button>
 
+<h3 id="carNameAjax"></h3>
+<h3 id="carAgeAjax"></h3>
+
+<script>
+    function testing() {
+        //Get
+        var carNameInputFromUser = $('#carNameInput').val();
+        $.ajax({
+            url: "api/test",
+            type: 'GET',
+            data: {"carname": carNameInputFromUser, "carage": 100},
+            success: function (data) {
+                $('#carNameAjax').html(data.name);
+                $('#carAgeAjax').html(data.age);
+            }
+        });
+    }
+</script>
 </body>
 </html>

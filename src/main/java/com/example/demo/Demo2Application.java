@@ -16,21 +16,3 @@ public class Demo2Application {
 
 }
 
-@Controller
-class MainController {
-
-    @RequestMapping("today")
-    String toFirstPage() {
-        return "hello";
-    }
-
-    @RequestMapping("tomorrow")
-    String toTomorrowPage(HttpServletRequest request, Model model) {
-        String usr = request.getParameter("userName");
-        System.out.println(usr);
-
-        model.addAttribute("username", usr);
-        return "goodBye";
-    }
-
-}
